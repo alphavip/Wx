@@ -47,7 +47,7 @@ DECLARE_APP(MyApp);
 bool MyApp::OnInit()
 {
 	//MyFrame *frame = new MyFrame("Hello World", wxPoint(50, 50), wxSize(450, 340));
-	MyFrame *frame = new MyFrame("Hello World", wxDefaultPosition, wxSize(450, 340));
+	MyFrame *frame = new MyFrame("Hello World", wxDefaultPosition, wxDefaultSize);
 	frame->Show(true);
 	SetTopWindow(frame);
 	return true;
@@ -70,21 +70,20 @@ MyFrame::MyFrame(const wxString& title, const wxPoint& pos, const wxSize& size)
 	SetStatusText("Welcome to wxWidgets!");
     
     
-    wxPanel* p = new wxPanel();
     wxBoxSizer* sizer[2];
-    sizer[0] = new wxBoxSizer(wxHORIZONTAL);
+    sizer[0] = new wxBoxSizer(wxVERTICAL);
     sizer[1] = new wxBoxSizer(wxVERTICAL);
     wxButton* button[5];
     //wxTextCtrl* textCtr = new wxTextCtrl(this, ID_TextCtl, "Type some text...", wxDefaultPosition, wxDefaultSize, wxTE_MULTILINE);
 
-    button[0] = new wxButton(this, ID_Button1, "send", wxDefaultPosition, wxSize(50, 40));
-    button[1] = new wxButton(this, ID_Button2, "pause", wxDefaultPosition, wxSize(50, 40));
+    button[0] = new wxButton(this, ID_Button1, "send", wxDefaultPosition, wxSize(100, 30));
+	button[1] = new wxButton(this, ID_Button2, "pause test long", wxDefaultPosition, wxSize(100, 30));
     
-    sizer[0]->Add(button[0], 0, wxALL, 2);
-    sizer[0]->Add(button[1], 0, wxALL, 2);
+	sizer[0]->Add(button[0], 0, wxALL, 2);
+	sizer[0]->Add(button[1], 0, wxALL, 2);
     //sizer[1]->Add(sizer[0]);
     //sizer[1]->Add(textCtr);
-    SetSizerAndFit(sizer[0]);
+    SetSizer(sizer[0]);
 }
 void MyFrame::OnExit(wxCommandEvent& event)
 {
