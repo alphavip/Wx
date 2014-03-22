@@ -13,8 +13,8 @@ solution "TestWx"
         libdirs { "/usr/local/lib" }
 
     configuration "macosx"
-        buildoptions { "-stdlib=libc++" }
-        linkoptions { "-stdlib=libc++" }
+ --       buildoptions { "-stdlib=libc++" }
+ --       linkoptions { "-stdlib=libc++" }
 
     configuration "vs*"
         flags "EnableSSE2"

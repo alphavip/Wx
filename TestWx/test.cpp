@@ -19,12 +19,19 @@ private:
 	void OnSaveContent(wxCommandEvent& event);
 	void OnExit(wxCommandEvent& event);
 	void OnAbout(wxCommandEvent& event);
+    
 	wxDECLARE_EVENT_TABLE();
 };
 enum
 {
 	ID_OpenFile = 100,
 	ID_SaveContent = 101,
+    ID_TextCtl = 102,
+    ID_Button1 = 103,
+    ID_Button2 = 104,
+    ID_Button3 = 105,
+    ID_Button4 = 106,
+    ID_Button5 = 107,
 };
 
 BEGIN_EVENT_TABLE(MyFrame, wxFrame)
@@ -40,7 +47,7 @@ DECLARE_APP(MyApp);
 bool MyApp::OnInit()
 {
 	//MyFrame *frame = new MyFrame("Hello World", wxPoint(50, 50), wxSize(450, 340));
-	MyFrame *frame = new MyFrame("Hello World", wxDefaultPosition, wxDefaultSize);
+	MyFrame *frame = new MyFrame("Hello World", wxDefaultPosition, wxSize(450, 340));
 	frame->Show(true);
 	SetTopWindow(frame);
 	return true;
@@ -61,6 +68,23 @@ MyFrame::MyFrame(const wxString& title, const wxPoint& pos, const wxSize& size)
 	SetMenuBar(menuBar);
 	CreateStatusBar();
 	SetStatusText("Welcome to wxWidgets!");
+    
+    
+    wxPanel* p = new wxPanel();
+    wxBoxSizer* sizer[2];
+    sizer[0] = new wxBoxSizer(wxHORIZONTAL);
+    sizer[1] = new wxBoxSizer(wxVERTICAL);
+    wxButton* button[5];
+    //wxTextCtrl* textCtr = new wxTextCtrl(this, ID_TextCtl, "Type some text...", wxDefaultPosition, wxDefaultSize, wxTE_MULTILINE);
+
+    button[0] = new wxButton(this, ID_Button1, "send", wxDefaultPosition, wxSize(50, 40));
+    button[1] = new wxButton(this, ID_Button2, "pause", wxDefaultPosition, wxSize(50, 40));
+    
+    sizer[0]->Add(button[0], 0, wxALL, 2);
+    sizer[0]->Add(button[1], 0, wxALL, 2);
+    //sizer[1]->Add(sizer[0]);
+    //sizer[1]->Add(textCtr);
+    SetSizerAndFit(sizer[0]);
 }
 void MyFrame::OnExit(wxCommandEvent& event)
 {

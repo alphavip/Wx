@@ -21,10 +21,10 @@ project "TestWx"
     configuration "not vs*"
         buildoptions { "-std=c++11" }
     configuration { "not windows", "Debug" }
-        buildoptions { "`wx-config --cxxflags --unicode=yes --debug=yes`" }
-        linkoptions { "`wx-config --libs all --unicode=yes --debug=yes`" }
+    --      buildoptions { "`wx-config --cxxflags --unicode=yes --debug=yes`" }
+    --    linkoptions { "`wx-config --libs all --unicode=yes --debug=yes`" }
     configuration { "not windows", "Release" }
-        buildoptions { "`wx-config --cxxflags --unicode=yes --debug=no`" }
-        linkoptions { "`wx-config --libs all --unicode=yes --debug=no`" }
+    --    buildoptions { "`wx-config --cxxflags --unicode=yes --debug=no`" }
+    --    linkoptions { "`wx-config --libs all --unicode=yes --debug=no`" }
     configuration "not windows"
         links { "dl" }
